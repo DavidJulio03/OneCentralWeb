@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom'; // Importante para la navegación
 import { 
   Hammer, PaintRoller, Bolt, Wrench, 
   HardHat, Droplets, ArrowUpRight, Layout 
@@ -6,7 +7,7 @@ import {
 
 /**
  * CONFIGURACIÓN DEL COMPONENTE
- * Extraída para facilitar el mantenimiento y la escalabilidad.
+ * Se añade la propiedad 'path' para definir la ruta de cada categoría.
  */
 const GRID_CONFIG = {
   header: {
@@ -15,12 +16,12 @@ const GRID_CONFIG = {
     description: "Selección técnica verificada para alta ingeniería y hogar."
   },
   categories: [
-    { name: 'Herramientas', count: '450+ SKU', icon: <Hammer />, code: 'UNIT_01' },
-    { name: 'Pinturas', count: '120+ SKU', icon: <PaintRoller />, code: 'UNIT_02' },
-    { name: 'Electricidad', count: '300+ SKU', icon: <Bolt />, code: 'UNIT_03' },
-    { name: 'Plomería', count: '215+ SKU', icon: <Wrench />, code: 'UNIT_04' },
-    { name: 'Construcción', count: '80+ SKU', icon: <HardHat />, code: 'UNIT_05' },
-    { name: 'Grifería', count: '95+ SKU', icon: <Droplets />, code: 'UNIT_06' },
+    { name: 'Herramientas', count: '450+ SKU', icon: <Hammer />, code: 'UNIT_01', path: '/category/herramientas' },
+    { name: 'Pinturas', count: '120+ SKU', icon: <PaintRoller />, code: 'UNIT_02', path: '/category/pinturas' },
+    { name: 'Electricidad', count: '300+ SKU', icon: <Bolt />, code: 'UNIT_03', path: '/category/electricidad' },
+    { name: 'Plomería', count: '215+ SKU', icon: <Wrench />, code: 'UNIT_04', path: '/category/plomeria' },
+    { name: 'Construcción', count: '80+ SKU', icon: <HardHat />, code: 'UNIT_05', path: '/category/construccion' },
+    { name: 'Grifería', count: '95+ SKU', icon: <Droplets />, code: 'UNIT_06', path: '/category/griferia' },
   ]
 };
 
@@ -58,12 +59,13 @@ const CategoryGrid = () => {
           </div>
         </div>
 
-        {/* Grid de Categorías */}
+        {/* Grid de Categorías con Enlaces */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-10">
           {categories.map((cat, index) => (
-            <div 
+            <Link 
               key={index} 
-              className="group relative bg-white border-2 border-[#1e2948] p-6 md:p-8 transition-all duration-300 lg:hover:translate-x-[-4px] lg:hover:translate-y-[-4px] lg:hover:shadow-[8px_8px_0px_0px_rgba(209,219,63,1)] active:scale-[0.98] lg:active:scale-100 cursor-pointer"
+              to={cat.path}
+              className="group relative bg-white border-2 border-[#1e2948] p-6 md:p-8 transition-all duration-300 lg:hover:translate-x-[-4px] lg:hover:translate-y-[-4px] lg:hover:shadow-[8px_8px_0px_0px_rgba(209,219,63,1)] active:scale-[0.98] lg:active:scale-100 block"
             >
               {/* ID Técnico y Flecha */}
               <div className="flex justify-between items-start mb-8 md:mb-12">
@@ -99,7 +101,7 @@ const CategoryGrid = () => {
 
               {/* Detalle de esquina decorativo */}
               <div className="absolute top-0 right-0 w-3 h-3 bg-[#0e7a83] opacity-0 group-hover:opacity-100 transition-opacity hidden lg:block" />
-            </div>
+            </Link>
           ))}
         </div>
       </div>
