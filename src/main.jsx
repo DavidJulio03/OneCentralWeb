@@ -1,11 +1,11 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
-import OneCentralStore from './pages/Home/Home.jsx'
 import "./styles/global.css"
+import App from './router/App'
 
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <OneCentralStore></OneCentralStore>
+    <App></App>
   </StrictMode>,
 )

@@ -1,13 +1,43 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { 
   ArrowRight, 
-  Layers, 
   Maximize, 
   Construction, 
   CheckCircle2,
   Clock,
   Compass
 } from 'lucide-react';
+
+// --- CONFIGURACIÓN DE CONTENIDO Y RUTAS ---
+const HERO_CONTENT = {
+  version: "SISTEMA DE SUMINISTRO INDUSTRIAL • V.2026",
+  title: {
+    main: "POTENCIA",
+    highlight: "ESTRUCTURAL",
+    end: "PARA TU OBRA."
+  },
+  description: {
+    text: "No solo entregamos materiales, proveemos la ",
+    italic: "precisión técnica",
+    suffix: " que tu proyecto de ingeniería exige."
+  },
+  buttons: {
+    primary: { label: "VER CATÁLOGO", path: "/catalogo" },
+    secondary: { label: "COTIZAR PROYECTO", path: "/cotizar" }
+  },
+  badges: [
+    { icon: CheckCircle2, text: "Stock Real Ocaña" },
+    { icon: Clock, text: "Logística Express" }
+  ],
+  image: {
+    src: "https://images.unsplash.com/photo-1504148455328-c376907d081c?auto=format&fit=crop&w=800&q=80",
+    alt: "Maquinaria y Herramientas",
+    unitId: "ID_UNIT: 884-OCN",
+    scale: "Escala 1:1",
+    certification: "Calidad Certificada"
+  }
+};
 
 const Hero = () => {
   return (
@@ -17,7 +47,6 @@ const Hero = () => {
       <div className="absolute inset-0 opacity-[0.15]" 
            style={{ backgroundImage: 'radial-gradient(#1e2948 1px, transparent 1px)', backgroundSize: '40px 40px' }} />
       
-      {/* Líneas de eje solo visibles en desktop para no ensuciar el iPad */}
       <div className="absolute top-0 left-[10%] w-px h-full bg-slate-200/60 hidden xl:block" />
       <div className="absolute top-[20%] left-0 w-full h-px bg-slate-200/60 hidden xl:block" />
 
@@ -29,70 +58,77 @@ const Hero = () => {
             <div className="space-y-6">
               <div className="inline-flex items-center gap-2 font-mono text-[10px] md:text-xs font-bold text-[#d1db3f] border border-[#d1db3f]/30 px-3 py-1.5 rounded-sm bg-white/5">
                 <Compass size={14} className="animate-spin-slow" />
-                SISTEMA DE SUMINISTRO INDUSTRIAL • V.2026
+                {HERO_CONTENT.version}
               </div>
 
               <h1 className="text-4xl md:text-6xl lg:text-7xl font-black text-white leading-[0.95] tracking-tighter">
-                POTENCIA <br />
-                <span className="text-[#d1db3f]">ESTRUCTURAL</span> <br />
-                PARA TU OBRA.
+                {HERO_CONTENT.title.main} <br />
+                <span className="text-[#d1db3f]">{HERO_CONTENT.title.highlight}</span> <br />
+                {HERO_CONTENT.title.end}
               </h1>
 
               <p className="text-slate-300 text-lg md:text-xl max-w-lg leading-relaxed">
-                No solo entregamos materiales, proveemos la <span className="text-white font-bold italic">precisión técnica</span> que tu proyecto de ingeniería exige.
+                {HERO_CONTENT.description.text} 
+                <span className="text-white font-bold italic">{HERO_CONTENT.description.italic}</span> 
+                {HERO_CONTENT.description.suffix}
               </p>
 
               <div className="flex flex-col sm:flex-row gap-4 pt-4 md:pt-6">
-                <button className="flex items-center justify-center gap-3 bg-[#d1db3f] text-[#1e2948] px-8 md:px-10 py-4 font-black hover:bg-white transition-all group rounded-sm shadow-lg">
-                  VER CATÁLOGO
+                {/* Botón Primario con Link */}
+                <Link 
+                  to={HERO_CONTENT.buttons.primary.path}
+                  className="flex items-center justify-center gap-3 bg-[#d1db3f] text-[#1e2948] px-8 md:px-10 py-4 font-black hover:bg-white transition-all group rounded-sm shadow-lg"
+                >
+                  {HERO_CONTENT.buttons.primary.label}
                   <ArrowRight size={20} className="group-hover:translate-x-2 transition-transform" />
-                </button>
-                <button className="flex items-center justify-center gap-3 border-2 border-white/20 text-white px-8 py-4 font-bold hover:bg-white/10 transition-colors rounded-sm backdrop-blur-sm">
-                  COTIZAR PROYECTO
-                </button>
+                </Link>
+
+                {/* Botón Secundario con Link */}
+                <Link 
+                  to={HERO_CONTENT.buttons.secondary.path}
+                  className="flex items-center justify-center gap-3 border-2 border-white/20 text-white px-8 py-4 font-bold hover:bg-white/10 transition-colors rounded-sm backdrop-blur-sm"
+                >
+                  {HERO_CONTENT.buttons.secondary.label}
+                </Link>
               </div>
 
               {/* Checklist de confianza */}
               <div className="grid grid-cols-2 gap-4 pt-8 border-t border-white/10">
-                <div className="flex items-center gap-2 text-[10px] md:text-xs font-bold text-slate-300 uppercase tracking-widest">
-                  <CheckCircle2 size={16} className="text-[#0e7a83]" /> Stock Real Ocaña
-                </div>
-                <div className="flex items-center gap-2 text-[10px] md:text-xs font-bold text-slate-300 uppercase tracking-widest">
-                  <Clock size={16} className="text-[#0e7a83]" /> Logística Express
-                </div>
+                {HERO_CONTENT.badges.map((badge, idx) => (
+                  <div key={idx} className="flex items-center gap-2 text-[10px] md:text-xs font-bold text-slate-300 uppercase tracking-widest">
+                    <badge.icon size={16} className="text-[#0e7a83]" /> {badge.text}
+                  </div>
+                ))}
               </div>
             </div>
           </div>
 
-          {/* BLOQUE DERECHO: IMAGEN - Ajustado para iPad */}
+          {/* BLOQUE DERECHO: IMAGEN */}
           <div className="lg:col-span-5 relative flex items-center justify-center lg:pl-12">
             <div className="relative w-full max-w-[500px] lg:max-w-none aspect-square group">
               
-              {/* Marco decorativo - oculto en iPad portrait para evitar desborde */}
               <div className="absolute inset-0 border-[1px] border-slate-300 translate-x-6 -translate-y-6 hidden xl:block" />
               
-              {/* Contenedor de Imagen */}
               <div className="relative h-full w-full overflow-hidden border-2 border-[#1e2948] bg-slate-200 shadow-xl">
                 <img 
-                  src="https://images.unsplash.com/photo-1504148455328-c376907d081c?auto=format&fit=crop&w=800&q=80" 
+                  src={HERO_CONTENT.image.src} 
                   className="w-full h-full object-cover grayscale brightness-75 group-hover:grayscale-0 group-hover:brightness-100 transition-all duration-1000 group-hover:scale-105"
-                  alt="Maquinaria y Herramientas"
+                  alt={HERO_CONTENT.image.alt}
                 />
                 
                 <div className="absolute top-0 right-0 bg-[#0e7a83] text-white p-3 md:p-4 font-mono text-[10px]">
-                  ID_UNIT: 884-OCN
+                  {HERO_CONTENT.image.unitId}
                 </div>
                 
                 <div className="absolute bottom-0 left-0 bg-white p-4 md:p-6 border-t-2 border-r-2 border-[#1e2948]">
                   <Maximize size={24} className="text-[#1e2948] mb-2" />
                   <div className="font-mono text-[9px] md:text-[10px] text-slate-500 leading-tight uppercase font-bold">
-                    Escala 1:1 <br />
-                    Calidad Certificada
+                    {HERO_CONTENT.image.scale} <br />
+                    {HERO_CONTENT.image.certification}
                   </div>
                 </div>
               </div>
 
-              {/* Floating Badge - Ajustado tamaño para tablets */}
               <div className="absolute -top-6 -left-6 md:-top-8 md:-left-8 bg-[#d1db3f] p-4 md:p-5 shadow-xl animate-float border-2 border-[#1e2948] z-20">
                 <Construction size={28} className="text-[#1e2948] md:w-8 md:h-8" />
               </div>
