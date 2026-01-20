@@ -5,10 +5,10 @@ import TopBar from './TopBar';
 const NAV_LINKS = [
   { name: 'Inicio', href: '#' },
   { name: 'Herramientas', href: '#' },
-  { name: 'Construcción', href: '#' },
-  { name: 'Electricidad', href: '#' },
   { name: 'Pinturas', href: '#' },
-  { name: 'Plomería', href: '#' },
+  { name: 'Electricidad', href: '#' },
+  { name: 'Construcción', href: '#' },
+  { name: 'Grifería', href: '#' },
   { name: 'Contacto', href: '#' },
 ];
 
