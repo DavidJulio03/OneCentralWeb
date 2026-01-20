@@ -1,24 +1,45 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Search, ShoppingCart, Menu, X, Compass, Zap, Phone } from 'lucide-react';
+import { Search, ShoppingCart, Menu, X } from 'lucide-react';
 import TopBar from './TopBar';
+import CartDrawer from './Carrito';
+
+/**
+ * DATOS DE PRUEBA PARA EL CARRITO (Simulación de estado global)
+ */
+const MOCK_CART_ITEMS = [
+  {
+    id: "SKU_8821_X",
+    name: "Taladro Percutor Industrial 20V",
+    price: 450000,
+    discountPrice: 380000,
+    quantity: 1,
+    image: "https://images.unsplash.com/photo-1504148455328-c376907d081c"
+  },
+  {
+    id: "GRI_551_K",
+    name: "Mezclador Lavaplatos Monocontrol",
+    price: 215000,
+    discountPrice: 189000,
+    quantity: 2,
+    image: "https://images.unsplash.com/photo-1584622650111-993a426fbf0a"
+  }
+];
 
 /**
  * CONFIGURACIÓN INTEGRAL DEL HEADER
- * Centraliza la identidad visual y las rutas del sitio.
  */
 const HEADER_CONFIG = {
   identity: {
     logo: {
       part1: "O",
-      part2: "N", // La 'N' tiene el efecto de recorte técnico
+      part2: "N",
       part3: "E",
       subtext: "Central Ferretera"
     }
   },
   labels: {
     searchPlaceholder: "BUSCAR REFERENCIA / SKU...",
-    cartCount: 2,
     checkoutBtn: "Checkout"
   },
   navigation: [
@@ -34,11 +55,35 @@ const HEADER_CONFIG = {
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isCartOpen, setIsCartOpen] = useState(false);
+  
+  // Usamos los datos de prueba como estado inicial
+  const [cartItems, setCartItems] = useState(MOCK_CART_ITEMS);
+  
   const { identity, labels, navigation } = HEADER_CONFIG;
+
+  // Formateador de moneda
+  const formatCurrency = (amount) => {
+    return new Intl.NumberFormat('es-CO', { 
+      style: 'currency', 
+      currency: 'COP', 
+      maximumFractionDigits: 0 
+    }).format(amount);
+  };
+
+  // Funciones básicas para los datos de prueba
+  const updateQuantity = (id, newQty) => {
+    setCartItems(prev => prev.map(item => 
+      item.id === id ? { ...item, quantity: Math.max(1, newQty) } : item
+    ));
+  };
+
+  const removeItem = (id) => {
+    setCartItems(prev => prev.filter(item => item.id !== id));
+  };
 
   return (
     <header className="sticky top-0 z-50 bg-[#f8f9fa] border-b-2 border-[#1e2948]">
-      {/* --- TOP BAR TÉCNICA --- */}
       <TopBar />
 
       <div className="max-w-7xl mx-auto px-4 md:px-6">
@@ -65,7 +110,7 @@ const Header = () => {
             </div>
           </Link>
 
-          {/* BARRA DE BÚSQUEDA TÉCNICA */}
+          {/* BARRA DE BÚSQUEDA */}
           <div className="hidden md:flex flex-1 max-w-xl relative group">
             <div className="absolute inset-0 bg-[#d1db3f] translate-x-1 translate-y-1 -z-10 group-focus-within:translate-x-0 group-focus-within:translate-y-0 transition-transform" />
             <input 
@@ -80,19 +125,23 @@ const Header = () => {
 
           {/* ACCIONES */}
           <div className="flex items-center gap-3 md:gap-6">
-            <div className="relative group cursor-pointer bg-white border-2 border-[#1e2948] p-2.5 md:px-4 md:py-2 flex items-center gap-3 hover:bg-[#1e2948] transition-all duration-300">
+            <div 
+              onClick={() => setIsCartOpen(true)}
+              className="relative group cursor-pointer bg-white border-2 border-[#1e2948] p-2.5 md:px-4 md:py-2 flex items-center gap-3 hover:bg-[#1e2948] transition-all duration-300 shadow-[2px_2px_0px_0px_rgba(30,41,72,1)] active:shadow-none active:translate-x-[2px] active:translate-y-[2px]"
+            >
               <div className="relative">
                 <ShoppingCart size={20} className="text-[#1e2948] group-hover:text-[#d1db3f] transition-colors" />
-                <span className="absolute -top-4 -right-4 bg-[#0e7a83] text-white text-[9px] w-5 h-5 flex items-center justify-center font-black border-2 border-[#f8f9fa]">
-                  {labels.cartCount}
-                </span>
+                {cartItems.length > 0 && (
+                  <span className="absolute -top-4 -right-4 bg-[#0e7a83] text-white text-[9px] w-5 h-5 flex items-center justify-center font-black border-2 border-[#f8f9fa] animate-in fade-in zoom-in">
+                    {cartItems.reduce((acc, item) => acc + item.quantity, 0)}
+                  </span>
+                )}
               </div>
               <span className="hidden lg:block font-black text-[10px] tracking-widest text-[#1e2948] group-hover:text-white uppercase">
                 {labels.checkoutBtn}
               </span>
             </div>
             
-            {/* Botón Menú Móvil */}
             <button 
               className="md:hidden bg-[#1e2948] p-2 text-[#d1db3f]"
               onClick={() => setIsMenuOpen(!isMenuOpen)}
@@ -102,7 +151,7 @@ const Header = () => {
           </div>
         </div>
 
-        {/* NAVEGACIÓN (Desktop) */}
+        {/* NAVEGACIÓN DESKTOP */}
         <nav className="hidden md:block border-t border-[#1e2948]/10">
           <ul className="flex justify-between items-center py-3">
             {navigation.map((link) => (
@@ -122,16 +171,6 @@ const Header = () => {
         {/* MENÚ MÓVIL */}
         {isMenuOpen && (
           <nav className="md:hidden absolute top-full left-0 w-full bg-white border-b-4 border-[#0e7a83] py-6 shadow-2xl animate-in slide-in-from-top duration-300 px-6">
-            <div className="md:hidden flex mb-6 relative">
-              <input 
-                type="text" 
-                placeholder="BUSCAR SKU..."
-                className="w-full border-2 border-[#1e2948] rounded-none py-3 px-4 font-mono text-xs focus:outline-none"
-              />
-              <button className="absolute right-0 top-0 h-full px-4 bg-[#1e2948] text-[#d1db3f]">
-                <Search size={18} />
-              </button>
-            </div>
             <ul className="grid grid-cols-1 gap-2">
               {navigation.map((link) => (
                 <li key={link.name} onClick={() => setIsMenuOpen(false)}>
@@ -147,6 +186,16 @@ const Header = () => {
           </nav>
         )}
       </div>
+
+      {/* DRAWER DEL CARRITO CON DATOS DE PRUEBA */}
+      <CartDrawer 
+        isOpen={isCartOpen} 
+        onClose={() => setIsCartOpen(false)} 
+        cartItems={cartItems}
+        formatCurrency={formatCurrency}
+        onUpdateQuantity={updateQuantity}
+        onRemove={removeItem}
+      />
     </header>
   );
 };

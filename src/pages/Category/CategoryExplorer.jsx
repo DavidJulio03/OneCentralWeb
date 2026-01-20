@@ -238,7 +238,7 @@ const ProductCard = ({ product, isDiscounted, formatCurrency, labels, onOpenDeta
       </div>
 
       {/* BOTÓN INFERIOR - ACCIÓN DUAL */}
-      <div className="absolute bottom-0 left-0 w-full translate-y-full group-hover:translate-y-5 transition-transform duration-300 flex">
+      <div className="absolute bottom-0 left-0 w-full translate-y-full group-hover:translate-y-0 transition-transform duration-300 flex">
         <button 
           onClick={onOpenDetails}
           className="flex-1 bg-slate-100 text-[#1e2948] py-3 text-[10px] font-bold uppercase tracking-widest hover:bg-slate-200 transition-colors"
