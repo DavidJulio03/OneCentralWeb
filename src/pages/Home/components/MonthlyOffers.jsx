@@ -19,12 +19,12 @@ const UI_CONFIG = {
     background: "#f8f9fa"  // Light Grey
   },
   offers: [
-    { id: "P-01", name: "Taladro Bosch 1/2", price: "$389.9", old: "$450k", tag: "-15%", img: "https://images.unsplash.com/photo-1504148455328-c376907d081c?w=400&q=80" },
-    { id: "P-02", name: "Kit Stanley 50pzs", price: "$199.0", old: "$280k", tag: "-30%", img: "https://images.unsplash.com/photo-1581244277943-fe4a9c777189?w=400&q=80" },
-    { id: "P-03", name: "Pintura Terinsa 5G", price: "$245.0", old: "$310k", tag: "-20%", img: "https://images.unsplash.com/photo-1589939705384-5185138a04b9?w=400&q=80" },
-    { id: "P-04", name: "Pulidora DeWalt", price: "$315.9", old: "$380k", tag: "-18%", img: "https://images.unsplash.com/photo-1572981779307-38b8cabb2407?w=400&q=80" },
-    { id: "P-05", name: "Nivel Láser Bosch", price: "$520.0", old: "$600k", tag: "-12%", img: "https://images.unsplash.com/photo-1530124566582-a618bc2615dc?w=400&q=80" },
-    { id: "P-06", name: "Sierra Circular", price: "$410.0", old: "$490k", tag: "-16%", img: "https://images.unsplash.com/photo-1504148455328-c376907d081c?w=400&q=80" },
+    { id: "P-01", name: "Taladro Bosch 1/2", price: "$389.9", old: "$450k", tag: "-15%", img: "https://maquitecdecolombia.com/wp-content/uploads/2019/05/Taladro-Percutor-Reversible-Bosch-0.5pulg-650W-GSB-13-RE-060123D5G0-vista-ppal.webp" },
+    { id: "P-02", name: "Kit Stanley 50pzs", price: "$199.0", old: "$280k", tag: "-30%", img: "https://media.falabella.com/sodimacCO/876551_1/w=1500,h=1500,fit=cover" },
+    { id: "P-03", name: "Pintura Terinsa 5G", price: "$245.0", old: "$310k", tag: "-20%", img: "https://www.terinsa.com/wp-content/uploads/2020/06/VINIL_LATEX.png" },
+    { id: "P-04", name: "Pulidora DeWalt", price: "$315.9", old: "$380k", tag: "-18%", img: "https://media.falabella.com/sodimacCO/405337_1/w=1500,h=1500,fit=cover" },
+    { id: "P-05", name: "Nivel Láser Bosch", price: "$520.0", old: "$600k", tag: "-12%", img: "https://maquitecdecolombia.com/wp-content/uploads/2021/07/Nivel-laser-GCL-2-50G-0601066M01-vista-ppal-001.png" },
+    { id: "P-06", name: "Sierra Circular", price: "$410.0", old: "$490k", tag: "-16%", img: "https://almaceneshj.com/cdn/shop/files/DWE5615-B3_001.jpg?v=1711836863" },
   ],
   labels: {
     actionBtn: "ADQUIRIR EQUIPO",
@@ -84,7 +84,7 @@ const MonthlyOffers = () => {
               </div>
 
               <div className="h-48 sm:h-56 bg-slate-100 relative overflow-hidden shrink-0">
-                <img src={item.img} alt={item.name} className="w-full h-full object-cover grayscale group-hover:grayscale-0 sm:group-hover:scale-110 transition-all duration-700" />
+                <img src={item.img} alt={item.name} className="w-full h-full object-cover p-1 grayscale group-hover:grayscale-0 sm:group-hover:scale-110 transition-all duration-700" />
                 <div className={`absolute bottom-0 left-0 bg-[${colors.primary}] text-white font-mono text-[9px] px-2 py-1`}>
                   {item.id} // {labels.stockStatus}
                 </div>

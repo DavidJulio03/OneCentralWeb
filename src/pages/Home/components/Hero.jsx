@@ -23,8 +23,8 @@ const HERO_CONTENT = {
     suffix: " que tu proyecto de ingeniería exige."
   },
   buttons: {
-    primary: { label: "VER CATÁLOGO", path: "/catalogo" },
-    secondary: { label: "COTIZAR PROYECTO", path: "/cotizar" }
+    primary: { label: "VER CATÁLOGO", path: "/category/herramientas" },
+    secondary: { label: "COTIZAR PROYECTO", path: "/" }
   },
   badges: [
     { icon: CheckCircle2, text: "Stock Real Ocaña" },

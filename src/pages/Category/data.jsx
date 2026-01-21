@@ -22,7 +22,7 @@ const CATEGORIES_DATABASE = {
                 price: 450000,
                 discountPrice: 380000,
                 stock: 15,
-                image: "https://images.unsplash.com/photo-1504148455328-c376907d081c",
+                image: "https://media.falabella.com/sodimacCO/630237_02/w=1160",
                 tags: ["HEAVY_DUTY", "PROMO"],
                 details: {
                     fullDescription: "Motor sin escobillas para mayor eficiencia y vida útil. Ideal para perforaciones exigentes en concreto y mampostería.",
@@ -39,7 +39,7 @@ const CATEGORIES_DATABASE = {
                 price: 620000,
                 discountPrice: null,
                 stock: 8,
-                image: "https://images.unsplash.com/photo-1503387762-592deb58ef4e",
+                image: "https://almaceneshj.com/cdn/shop/files/DWE5615-B3_001.jpg?v=1711836863",
                 tags: ["PRECISION"],
                 details: {
                     fullDescription: "Corte preciso y potente para trabajos de carpintería estructural. Sistema de soplado para mantener línea de corte limpia.",
@@ -56,7 +56,7 @@ const CATEGORIES_DATABASE = {
                 price: 290000,
                 discountPrice: 245000,
                 stock: 42,
-                image: "https://images.unsplash.com/photo-1616628182501-43f8b6c2c7b2",
+                image: "https://www.promakertools.com/wp-content/uploads/2022/08/kit-Angle-grinder-4-inch-PRO-ES750kit-promaker-1.jpg",
                 tags: ["BEST_SELLER", "PROMO"],
                 details: {
                     fullDescription: "Diseño ergonómico y compacto para trabajos en espacios reducidos. Sistema de protección contra re-arranque.",
@@ -73,7 +73,7 @@ const CATEGORIES_DATABASE = {
                 price: 185000,
                 discountPrice: null,
                 stock: 0,
-                image: "https://images.unsplash.com/photo-1602524812300-7a7b87f1d6c1",
+                image: "https://media.falabella.com/sodimacCO/620846/public",
                 tags: ["NEUMÁTICA"],
                 details: {
                     fullDescription: "Herramienta profesional de alta velocidad para acabados finos. Requiere compresor de aire industrial.",
@@ -109,7 +109,7 @@ const CATEGORIES_DATABASE = {
                 price: 85000,
                 discountPrice: 68000,
                 stock: 120,
-                image: "https://images.unsplash.com/photo-1598300053654-2a9a38d6e5f4",
+                image: "https://alfagresalfa.vtexassets.com/arquivos/ids/346662/IMG01.jpg?v=638689754834130000",
                 tags: ["PREMIUM", "PROMO"],
                 details: {
                     fullDescription: "Pintura de bajo olor y secado rápido. Resistente a manchas comunes y fácil de limpiar sin desgaste.",
@@ -126,7 +126,7 @@ const CATEGORIES_DATABASE = {
                 price: 42000,
                 discountPrice: null,
                 stock: 45,
-                image: "https://images.unsplash.com/photo-1588854337236-6889d631faa8",
+                image: "https://grupotx.cl/wp-content/uploads/2024/07/14-ESMALTE-SINTETICO-Y-ANTICORROSIVO-BLANCO.jpg",
                 tags: ["METAL"],
                 details: {
                     fullDescription: "Protección superior para superficies metálicas expuestas a la intemperie. No requiere base anticorrosiva adicional.",
@@ -162,7 +162,7 @@ const CATEGORIES_DATABASE = {
                 price: 320000,
                 discountPrice: 295000,
                 stock: 30,
-                image: "https://images.unsplash.com/photo-1581092160613-b9f1c7b8b3b4",
+                image: "https://interelectricas.com.co/4672/cable-de-cobre-aislado-no-12-awg-metro-thhn-color-rojo.jpg",
                 tags: ["CERTIFICADO", "OBRA"],
                 details: {
                     fullDescription: "Conductor de cobre suave con aislamiento termoplástico de PVC y chaqueta de Nylon. Ideal para instalaciones comerciales.",
@@ -179,7 +179,7 @@ const CATEGORIES_DATABASE = {
                 price: 25000,
                 discountPrice: null,
                 stock: 200,
-                image: "https://images.unsplash.com/photo-1621905251189-08b45d6a269e",
+                image: "https://http2.mlstatic.com/D_NQ_NP_689288-CBT93336056928_092025-O.webp",
                 tags: ["SEGURIDAD"],
                 details: {
                     fullDescription: "Dispositivo de protección contra sobrecargas y cortocircuitos. Compatible con tableros de distribución estándar.",
@@ -215,7 +215,7 @@ const CATEGORIES_DATABASE = {
                 price: 34000,
                 discountPrice: null,
                 stock: 500,
-                image: "https://images.unsplash.com/photo-1590650153855-d9e808231d41",
+                image: "https://ferropaz.com/img/p/3/7/37-thickbox_default.jpg",
                 tags: ["BÁSICOS"],
                 details: {
                     fullDescription: "Cemento Portland de alta calidad para fundiciones de placas, vigas y columnas estructurales.",
@@ -232,7 +232,7 @@ const CATEGORIES_DATABASE = {
                 price: 28000,
                 discountPrice: 22000,
                 stock: 85,
-                image: "https://images.unsplash.com/photo-1600607687644-c7171b42498b",
+                image: "https://pamerperu.com/wp-content/uploads/2023/06/SikaCeram-203-BF-IMPERMEABLE_PAMER.jpg",
                 tags: ["ACABADOS", "PROMO"],
                 details: {
                     fullDescription: "Mortero adhesivo de alto desempeño para la instalación de revestimientos en pisos y paredes interiores.",
@@ -268,7 +268,7 @@ const CATEGORIES_DATABASE = {
                 price: 215000,
                 discountPrice: 189000,
                 stock: 12,
-                image: "https://images.unsplash.com/photo-1584622650111-993a426fbf0a",
+                image: "https://tamescolombia.com.co/6441-large_default/griferia-negra-lavaplatos-mezclador-monocontrol-cisne-360.jpg",
                 tags: ["DISEÑO", "PROMO"],
                 details: {
                     fullDescription: "Grifería de alta gama con cuello de silicona flexible y salida de agua tipo lluvia o chorro continuo.",
@@ -285,7 +285,7 @@ const CATEGORIES_DATABASE = {
                 price: 145000,
                 discountPrice: null,
                 stock: 25,
-                image: "https://images.unsplash.com/photo-1620626011761-9963d7521477",
+                image: "https://grifoscenter.com/cdn/shop/files/D_609910-MCO75908499869_042024-B.jpg?v=1753977988",
                 tags: ["BAÑO"],
                 details: {
                     fullDescription: "Sistema completo de ducha con regadera de gran cobertura y mezclador de temperatura de alta precisión.",
