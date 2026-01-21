@@ -1,5 +1,6 @@
 import React from 'react';
 import { X, Trash2, Plus, Minus, CreditCard, ShoppingBag, ArrowRight } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 const CartDrawer = ({ isOpen, onClose, cartItems, onUpdateQuantity, onRemove, formatCurrency }) => {
   // Cálculo de totales
@@ -115,11 +116,13 @@ const CartDrawer = ({ isOpen, onClose, cartItems, onUpdateQuantity, onRemove, fo
               </div>
             </div>
 
-            <button className="w-full bg-[#1e2948] text-[#d1db3f] py-4 font-black uppercase text-xs tracking-[0.2em] flex items-center justify-center gap-3 hover:bg-[#0e7a83] hover:text-white transition-all group">
-              <CreditCard size={18} />
-              Finalizar Pedido
-              <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
-            </button>
+            <Link to='/Comprar'>
+              <button className="w-full bg-[#1e2948] text-[#d1db3f] py-4 font-black uppercase text-xs tracking-[0.2em] flex items-center justify-center gap-3 hover:bg-[#0e7a83] hover:text-white transition-all group">
+                <CreditCard size={18} />
+                Finalizar Pedido
+                <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
+              </button>
+            </Link>          
             <p className="text-center mt-4 text-[9px] font-bold text-slate-400 uppercase tracking-tighter">
               Transacción encriptada bajo protocolo de seguridad industrial
             </p>
